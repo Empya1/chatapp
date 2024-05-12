@@ -26,6 +26,15 @@ with app.app_context():
 
 def index():
 	return render_template("index.html", all_chat=Chat.query.all())
+
+@app.route("/clear_chat")
+
+def clear_chat():
+	for chat in Chat.query.all():
+		db.session.remove(chat)
+		db.session.commit()
+		
+	return redirect(url_for("index"))
 	
 	
 @socket.on("recvmsg")
