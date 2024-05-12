@@ -2,3 +2,4 @@ Gunicorn
 Flask
 Flask-Sqlalchemy
 Flask-Socketio
+eventlet
