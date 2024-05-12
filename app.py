@@ -42,4 +42,3 @@ def process(data):
 	print(x)
 	socket.emit("show", {"chattext": chat_text, "time": m_time})
 	
-socket.run(app)
