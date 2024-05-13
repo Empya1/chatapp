@@ -1,3 +1,7 @@
+import eventlet
+eventlet.monkey_patch()
+
+
 from flask import Flask, url_for, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO
