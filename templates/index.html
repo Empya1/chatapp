@@ -92,7 +92,7 @@ var socket = io.connect();
 $("#sendbtn").click(function(){
 var chat_text = $("#chattext").val();
 socket.emit("recvmsg", chat_text);
-$("#chattext").text("");
+$("#chattext").val("");
 
 });
 
