@@ -91,7 +91,6 @@ var socket = io.connect();
 $("#sendbtn").click(function(){
 var chat_text = $("#chattext").val();
 socket.emit("recvmsg", chat_text);
-$("#chattext").val("");
 
 });
 
@@ -106,6 +105,8 @@ sd.text(chat_text);
 fd.append(sd);
 
 $("#chatview").append(fd);
+
+$("#chattext").val("");
 
 var target = $('html, body');
 
