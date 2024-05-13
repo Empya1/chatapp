@@ -50,13 +50,14 @@ def clear_chat():
 def process(data):
 	
 	chat_text = str(data)
-	time = datetime.datetime.now()
-	m_time = time.strftime("%H : %M")
-	print("chatting")
-	db.session.add(Chat(content=chat_text, time =str(m_time) ))
-	db.session.commit()
-	print("Chat added to db")
-	x = Chat.query.filter(Chat.content==chat_text).first()
-	print(x)
-	socket.emit("show", {"chattext": chat_text, "time": m_time})
+	if chat.text != "":
+		time = datetime.datetime.now()
+		m_time = time.strftime("%H : %M")
+		print("chatting")
+		db.session.add(Chat(content=chat_text, time =str(m_time) ))
+		db.session.commit()
+		print("Chat added to db")
+		x = Chat.query.filter(Chat.content==chat_text).first()
+		print(x)
+		socket.emit("show", {"chattext": chat_text, "time": m_time})
 	
