@@ -34,11 +34,16 @@ def index():
 @app.route("/clear_chat")
 
 def clear_chat():
-	for chat in Chat.query.all():
-		db.session.remove(chat)
-		db.session.commit()
+	try:
+		for chat in Chat.query.all():
+			db.session.remove(chat)
+			db.session.commit()
 		
-	return redirect(url_for("index"))
+		return redirect(url_for("index"))
+		
+	except:
+		return redirect(url_for("index"))
+	
 	
 	
 @socket.on("recvmsg")
