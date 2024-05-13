@@ -36,7 +36,7 @@ def index():
 def clear_chat():
 	try:
 		for chat in Chat.query.all():
-			db.session.remove(chat)
+			db.session.delete(chat)
 			db.session.commit()
 		
 		return redirect(url_for("index"))
